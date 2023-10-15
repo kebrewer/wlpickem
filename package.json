@@ -1,0 +1,13 @@
+{
+  "name": "vanillin",
+  "description": "Simple-Page App built with Node.js and no dependencies",
+  "homepage": "https://michaelcurrin.github.io/single-page-app-vanilla-js/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MichaelCurrin/single-page-app-vanilla-js"
+  },
+  "author": "MichaelCurrin",
+  "license": "MIT",
+  "version": "0.1.0",
+  "main": "index.js"
+}
