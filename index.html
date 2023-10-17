@@ -17,6 +17,7 @@
       crossorigin
     />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
     <script>
       function on() {
         document.getElementById("overlay").style.display = "block";
@@ -154,7 +155,9 @@
     <div id="herocontent">
       <div
         class="hero min-h-screen"
-        style="background-image: url(./static/images/ChicagoSteppers_CKL_LR017.webp)"
+        style="
+          background-image: url(./static/images/ChicagoSteppers_CKL_LR017.webp);
+        "
       >
         <div class="hero-overlay bg-opacity-60"></div>
         <div class="hero-content text-center text-neutral-content">
@@ -198,7 +201,9 @@
         </ul>
       </div>
       <div style="text-align: center">
-        <button class="btn btn-primary" onclick="validInputs()">Submit Your Choices</button>
+        <button class="btn btn-primary" onclick="validInputs()">
+          Submit Your Choices
+        </button>
       </div>
       <dialog id="submitModal" class="modal">
         <div class="modal-box">
@@ -1853,7 +1858,9 @@
 
       <div style="height: 30px"><span class="filler">spacer</span></div>
       <div style="text-align: center">
-        <button class="btn btn-primary" onclick="validInputs()">Submit Your Choices</button>
+        <button class="btn btn-primary" onclick="validInputs()">
+          Submit Your Choices
+        </button>
       </div>
       <div style="height: 30px"><span class="filler">spacer</span></div>
 
@@ -2169,6 +2176,16 @@
       </footer>
     </div>
     <!--end of maincontent-->
+
+    <template id="stripebttn">
+      <div style="width: 100%; text-align: center">
+      <stripe-buy-button
+        buy-button-id="buy_btn_1O0deKFD6FDvUpvf90deDz9s"
+        publishable-key="pk_live_51NzK2mFD6FDvUpvfgIDrt4Yvr7EdLmBPvv2KhTz1ZeMxOEGBhVCZc9wo6yNvPH04fFJcrnecWsjAsCrEOjm17KN0006C3fXt9H"
+      >
+      </stripe-buy-button>
+      </div>
+    </template>
   </body>
   <script>
     const tabs = document.querySelector(".tabwrapper");
@@ -2294,7 +2311,11 @@
         }
         submitModal.showModal();
       } else {
-        alert('will make a backend call to submit data');
+        //alert("will make a backend call to submit data");
+        const template = document.getElementById('stripebttn');
+        const firstClone = template.content.cloneNode(true);
+        document.getElementById('maincontent').innerHTML = '';
+        document.getElementById('maincontent').append(firstClone);
       }
     }
 
