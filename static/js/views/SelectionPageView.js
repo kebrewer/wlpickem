@@ -17,7 +17,7 @@ export default class extends AbstractView {
       <div class="dropdownrow"> 
       <label class="selectlabel" for="beginners">1st Place</label>
       <div class="catdropdown">
-        <select class="select-sm select-primary w-full max-w-xs">
+        <select class="select select-primary w-full max-w-xs">
           <option disabled selected>Select A Couple</option>
           <option>Couple 1: Tykman & Vicki Henninng</option>
           <option>Couple 2: Mark Alexander & Renee Brewer</option>
@@ -29,7 +29,7 @@ export default class extends AbstractView {
       <div class="dropdownrow"> 
       <label class="selectlabel" for="beginners">2nd Place</label>
       <div class="catdropdown">
-        <select class="select-sm select-primary w-full max-w-xs">
+        <select class="select select-primary w-full max-w-xs">
           <option disabled selected>Select A Couple</option>
           <option>Couple 1: Tykman & Vicki Henninng</option>
           <option>Couple 2: Mark Alexander & Renee Brewer</option>
@@ -41,7 +41,7 @@ export default class extends AbstractView {
       <div class="dropdownrow"> 
       <label class="selectlabel" for="beginners">3rd Place</label>
       <div class="catdropdown">
-        <select class="select-sm select-primary w-full max-w-xs">
+        <select class="select select-primary w-full max-w-xs">
           <option disabled selected>Select A Couple</option>
           <option>Couple 1: Tykman & Vicki Henninng</option>
           <option>Couple 2: Mark Alexander & Renee Brewer</option>
@@ -59,7 +59,7 @@ export default class extends AbstractView {
       <div class="dropdownrow"> 
       <label class="selectlabel" for="newschool">1st Place</label>
       <div class="catdropdown">
-        <select class="select-sm select-primary w-full max-w-xs">
+        <select class="select select-primary w-full max-w-xs">
           <option disabled selected>Select A Couple</option>
           <option>Couple 1: Tykman & Vicki Henninng</option>
           <option>Couple 2: Mark Alexander & Renee Brewer</option>
@@ -71,7 +71,7 @@ export default class extends AbstractView {
       <div class="dropdownrow"> 
       <label class="selectlabel" for="beginners">2nd Place</label>
       <div class="catdropdown">
-        <select class="select-sm select-primary w-full max-w-xs">
+        <select class="select select-primary w-full max-w-xs">
           <option disabled selected>Select A Couple</option>
           <option>Couple 1: Tykman & Vicki Henninng</option>
           <option>Couple 2: Mark Alexander & Renee Brewer</option>
@@ -83,7 +83,7 @@ export default class extends AbstractView {
       <div class="dropdownrow"> 
       <label class="selectlabel" for="beginners">3rd Place</label>
       <div class="catdropdown">
-        <select class="select-sm select-primary w-full max-w-xs">
+        <select class="select select-primary w-full max-w-xs">
           <option disabled selected>Select A Couple</option>
           <option>Couple 1: Tykman & Vicki Henninng</option>
           <option>Couple 2: Mark Alexander & Renee Brewer</option>
@@ -100,7 +100,7 @@ export default class extends AbstractView {
       <div class="dropdownrow"> 
       <label class="selectlabel" for="oldschool">1st Place</label>
       <div class="catdropdown">
-        <select class="select-sm select-primary w-full max-w-xs">
+        <select class="select select-primary w-full max-w-xs">
           <option disabled selected>Select A Couple</option>
           <option>Couple 1: Tykman & Vicki Henninng</option>
           <option>Couple 2: Mark Alexander & Renee Brewer</option>
@@ -112,7 +112,7 @@ export default class extends AbstractView {
       <div class="dropdownrow"> 
       <label class="selectlabel" for="beginners">2nd Place</label>
       <div class="catdropdown">
-        <select class="select-sm select-primary w-full max-w-xs">
+        <select class="select select-primary w-full max-w-xs">
           <option disabled selected>Select A Couple</option>
           <option>Couple 1: Tykman & Vicki Henninng</option>
           <option>Couple 2: Mark Alexander & Renee Brewer</option>
@@ -124,7 +124,7 @@ export default class extends AbstractView {
       <div class="dropdownrow"> 
       <label class="selectlabel" for="beginners">3rd Place</label>
       <div class="catdropdown">
-        <select class="select-sm select-primary w-full max-w-xs">
+        <select class="select select-primary w-full max-w-xs">
           <option disabled selected>Select A Couple</option>
           <option>Couple 1: Tykman & Vicki Henninng</option>
           <option>Couple 2: Mark Alexander & Renee Brewer</option>
@@ -140,7 +140,7 @@ export default class extends AbstractView {
       <div class="dropdownrow"> 
       <label class="selectlabel" for="trios">1st Place</label>
       <div class="catdropdown">
-        <select class="select-sm select-primary w-full max-w-xs">
+        <select class="select select-primary w-full max-w-xs">
           <option disabled selected>Select A Couple</option>
           <option>Couple 1: Tykman & Vicki Henninng</option>
           <option>Couple 2: Mark Alexander & Renee Brewer</option>
@@ -152,7 +152,7 @@ export default class extends AbstractView {
       <div class="dropdownrow"> 
       <label class="selectlabel" for="beginners">2nd Place</label>
       <div class="catdropdown">
-        <select class="select-sm select-primary w-full max-w-xs">
+        <select class="select select-primary w-full max-w-xs">
           <option disabled selected>Select A Couple</option>
           <option>Couple 1: Tykman & Vicki Henninng</option>
           <option>Couple 2: Mark Alexander & Renee Brewer</option>
@@ -164,7 +164,7 @@ export default class extends AbstractView {
       <div class="dropdownrow"> 
       <label class="selectlabel" for="beginners">3rd Place</label>
       <div class="catdropdown">
-        <select class="select-sm select-primary w-full max-w-xs">
+        <select class="select select-primary w-full max-w-xs">
           <option disabled selected>Select A Couple</option>
           <option>Couple 1: Tykman & Vicki Henninng</option>
           <option>Couple 2: Mark Alexander & Renee Brewer</option>
@@ -181,7 +181,7 @@ export default class extends AbstractView {
       <div class="dropdownrow"> 
       <label class="selectlabel" for="walkers">1st Place</label>
       <div class="catdropdown">
-        <select class="select-sm select-primary w-full max-w-xs">
+        <select class="select select-primary w-full max-w-xs">
           <option disabled selected>Select A Couple</option>
           <option>Couple 1: Tykman & Vicki Henninng</option>
           <option>Couple 2: Mark Alexander & Renee Brewer</option>
@@ -193,7 +193,7 @@ export default class extends AbstractView {
       <div class="dropdownrow"> 
       <label class="selectlabel" for="beginners">2nd Place</label>
       <div class="catdropdown">
-        <select class="select-sm select-primary w-full max-w-xs">
+        <select class="select select-primary w-full max-w-xs">
           <option disabled selected>Select A Couple</option>
           <option>Couple 1: Tykman & Vicki Henninng</option>
           <option>Couple 2: Mark Alexander & Renee Brewer</option>
@@ -205,7 +205,7 @@ export default class extends AbstractView {
       <div class="dropdownrow"> 
       <label class="selectlabel" for="beginners">3rd Place</label>
       <div class="catdropdown">
-        <select class="select-sm select-primary w-full max-w-xs">
+        <select class="select select-primary w-full max-w-xs">
           <option disabled selected>Select A Couple</option>
           <option>Couple 1: Tykman & Vicki Henninng</option>
           <option>Couple 2: Mark Alexander & Renee Brewer</option>
