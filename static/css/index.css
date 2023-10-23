@@ -131,13 +131,13 @@
 .selectlabel{
   flex: 1;
   margin: 10px;
-  width: 3cqh;
+  width: 40%;
   margin-top: 5px;
 }
 
 .catdropdown {
   margin-right: 10px;
-  width: 70%;
+  width: 60%;
 }
 .selectedcategoryLabel{
   margin-left: 25px;
