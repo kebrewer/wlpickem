@@ -1,16 +1,31 @@
-import AbstractView from './AbstractView.js';
+import AbstractView from "./AbstractView.js";
 
 export default class extends AbstractView {
   constructor(params) {
     super(params);
-    this.setTitle('Selection');
+    this.setTitle("Selection");
   }
 
   async getHtml() {
-    console.log('geting markeup2');
     return `
-            <h1>Settings</h1>
-            <p>Manage your privacy and configuration.</p>
+
+    <form action="/action_page.php">
+  <label for="cars">Choose a car:</label>
+  <select name="cars" id="cars">
+    <optgroup label="Swedish Cars">
+      <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+    </optgroup>
+    <optgroup label="German Cars">
+      <option value="mercedes">Mercedes</option>
+      <option value="audi">Audi</option>
+    </optgroup>
+  </select>
+  <br><br>
+  <input type="submit" value="Submit">
+</form>
+ 
+
         `;
   }
 }
