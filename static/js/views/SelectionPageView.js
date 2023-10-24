@@ -9,6 +9,15 @@ export default class extends AbstractView {
   async getHtml() {
     return `
 
+    <div class="rulelist">
+      <ul class="steps steps-vertical">
+        <li class="step step-primary">Review how to win the $500?</li>
+        <li class="step step-primary">Select Your Winners Below</li>
+        <li class="step step-primary">Pay $5 to Enter your Choices</li>
+        <li class="step step-primary">Receive Confirmation Code</li>
+      </ul>
+    </div>
+
     <!--CATEGORY BEGINNERS----------------------------->
 
     <div class="selectedcategoryLabel">Beginners</div>
