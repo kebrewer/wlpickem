@@ -1,16 +1,21 @@
 import ConfirmationPageView from "./views/ConfirmationPageView.js";
 import SelectionPageView from "./views/SelectionPageView.js";
 import LandingPageView from "./views/LandingPageView.js";
+import WinnerPageView from "./views/WinnerPageView.js";
+import ScorePageView from "./views/ScorePageView.js";
 
 
 const routes = {
   landing: LandingPageView,
   selection: SelectionPageView,
   confirmation: ConfirmationPageView,
+  winner: WinnerPageView,
+  score: ScorePageView
 };
 
 // create a function that watches the url and calls the urlLocationHandler
 const locationHandler = async () => {
+  console.log('im in location handler')
   // get the url path, replace hash with empty string
   var location = window.location.hash.replace("#", "");
   // if the path length is 0, set it to primary page route
@@ -18,6 +23,9 @@ const locationHandler = async () => {
     location = "/";
     let hero = document.getElementById("herocontent");
     hero.classList.remove("hideelement");
+
+    let appDiv = document.getElementById('app');
+    appDiv.classList.add("hideelement");
   }
 
   let View = routes[location];
