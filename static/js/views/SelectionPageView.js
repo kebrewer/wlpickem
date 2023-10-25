@@ -23,7 +23,7 @@ export default class extends AbstractView {
     <div class="selectedcategoryLabel">Beginners</div>
     <div class="selectcategory">
     <!-- first place -->
-      <div class="dropdownrow"> 
+      <div class="dropdownrow divbackground"> 
       <label class="selectlabel" for="beginners">1st Place</label>
       <div class="catdropdown">
         <select class="select select-primary w-full max-w-xs">
@@ -47,7 +47,7 @@ export default class extends AbstractView {
       </div> <!-- end of div row-->
 
     <!-- third place -->  
-      <div class="dropdownrow"> 
+      <div class="dropdownrow divbackground"> 
       <label class="selectlabel" for="beginners">3rd Place</label>
       <div class="catdropdown">
         <select class="select select-primary w-full max-w-xs">
@@ -65,7 +65,7 @@ export default class extends AbstractView {
     <div class="selectedcategoryLabel">New School</div>
     <div class="selectcategory">
     <!-- first place -->
-      <div class="dropdownrow"> 
+      <div class="dropdownrow divbackground"> 
       <label class="selectlabel" for="newschool">1st Place</label>
       <div class="catdropdown">
         <select class="select select-primary w-full max-w-xs">
@@ -89,7 +89,7 @@ export default class extends AbstractView {
       </div> <!-- end of div row-->
 
     <!-- third place -->  
-      <div class="dropdownrow"> 
+      <div class="dropdownrow divbackground"> 
       <label class="selectlabel" for="beginners">3rd Place</label>
       <div class="catdropdown">
         <select class="select select-primary w-full max-w-xs">
@@ -106,7 +106,7 @@ export default class extends AbstractView {
     <div class="selectedcategoryLabel">Old School</div>
     <div class="selectcategory">
     <!-- first place -->
-      <div class="dropdownrow"> 
+      <div class="dropdownrow divbackground"> 
       <label class="selectlabel" for="oldschool">1st Place</label>
       <div class="catdropdown">
         <select class="select select-primary w-full max-w-xs">
@@ -130,7 +130,7 @@ export default class extends AbstractView {
       </div> <!-- end of div row-->
 
     <!-- third place -->  
-      <div class="dropdownrow"> 
+      <div class="dropdownrow divbackground"> 
       <label class="selectlabel" for="beginners">3rd Place</label>
       <div class="catdropdown">
         <select class="select select-primary w-full max-w-xs">
@@ -146,7 +146,7 @@ export default class extends AbstractView {
     <div class="selectedcategoryLabel">Trios</div>
     <div class="selectcategory">
     <!-- first place -->
-      <div class="dropdownrow"> 
+      <div class="dropdownrow divbackground"> 
       <label class="selectlabel" for="trios">1st Place</label>
       <div class="catdropdown">
         <select class="select select-primary w-full max-w-xs">
@@ -170,7 +170,7 @@ export default class extends AbstractView {
       </div> <!-- end of div row-->
 
     <!-- third place -->  
-      <div class="dropdownrow"> 
+      <div class="dropdownrow divbackground"> 
       <label class="selectlabel" for="beginners">3rd Place</label>
       <div class="catdropdown">
         <select class="select select-primary w-full max-w-xs">
@@ -187,7 +187,7 @@ export default class extends AbstractView {
     <div class="selectedcategoryLabel">Walkers</div>
     <div class="selectcategory">
     <!-- first place -->
-      <div class="dropdownrow"> 
+      <div class="dropdownrow divbackground"> 
       <label class="selectlabel" for="walkers">1st Place</label>
       <div class="catdropdown">
         <select class="select select-primary w-full max-w-xs">
@@ -211,7 +211,7 @@ export default class extends AbstractView {
       </div> <!-- end of div row-->
 
     <!-- third place -->  
-      <div class="dropdownrow"> 
+      <div class="dropdownrow divbackground"> 
       <label class="selectlabel" for="beginners">3rd Place</label>
       <div class="catdropdown">
         <select class="select select-primary w-full max-w-xs">
