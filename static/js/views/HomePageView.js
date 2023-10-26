@@ -152,9 +152,9 @@ export default class extends AbstractView {
   }
 
   enableButtonListeners(){
-   document.querySelectorAll("#selectionBtton").forEach((bttn) => {
-    bttn.addEventListener("click", this.validInputs.bind(this));
-   })
+//    document.querySelectorAll("#selectionBtton").forEach((bttn) => {
+//     bttn.addEventListener("click", this.validInputs.bind(this));
+//    })
   }
 
   async getHtml() {
@@ -170,7 +170,7 @@ export default class extends AbstractView {
     </div>
     <div style="text-align: center">
       <button id="selectionBtton" class="btn btn-primary">
-        Submit Your Choices
+      <a href="#selection" data-link>Enter Here to Play</a>
       </button>
     </div>
     <dialog id="submitModal" class="modal">
@@ -182,14 +182,12 @@ export default class extends AbstractView {
         <div class="modal-action">
           <form method="dialog">
             <!-- if there is a button in form, it will close the modal -->
-            <button class="btn">Close</button>
+            <button class="btn"><a href="#selection" data-link>Close</a></button>
           </form>
         </div>
       </div>
     </dialog>
-    <div class="selectionrules">
-      Please select 3 couples from each category
-    </div>
+
     <div style="height: 30px"><span class="filler">spacer</span></div>
     <div class="tabwrapper">
       <div class="tabs">
@@ -228,7 +226,6 @@ export default class extends AbstractView {
             <th></th>
             <th>Couples</th>
             <th>Fans Favorite to Place</th>
-            <th>Pick 3</th>
           </tr>
         </thead>
         <tbody>
@@ -244,9 +241,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox begin-item-list" />
-            </td>
+            
           </tr>
           <tr>
             <th>2</th>
@@ -259,9 +254,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox begin-item-list" />
-            </td>
+            
           </tr>
           <!-- row 3 -->
           <tr>
@@ -275,9 +268,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox begin-item-list" />
-            </td>
+            
           </tr>
           <!-- row 4 -->
           <tr>
@@ -291,9 +282,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox begin-item-list" />
-            </td>
+            
           </tr>
           <!-- row 5 -->
           <tr>
@@ -307,9 +296,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox begin-item-list" />
-            </td>
+            
           </tr>
           <!-- row 6 -->
           <tr>
@@ -323,9 +310,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox begin-item-list" />
-            </td>
+            
           </tr>
           <!-- row 7-->
           <tr>
@@ -339,9 +324,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox begin-item-list" />
-            </td>
+            
           </tr>
           <!-- row 8 -->
           <tr>
@@ -355,9 +338,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox begin-item-list" />
-            </td>
+            
           </tr>
           <tr>
             <td colspan="4" text-align="center">
@@ -380,9 +361,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox begin-item-list" />
-            </td>
+            
           </tr>
           <!-- row 10 -->
           <tr>
@@ -396,9 +375,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox begin-item-list" />
-            </td>
+            
           </tr>
           <!-- row 11 -->
           <tr>
@@ -412,9 +389,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox begin-item-list" />
-            </td>
+            
           </tr>
           <!-- row 12 -->
           <tr>
@@ -428,9 +403,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox begin-item-list" />
-            </td>
+            
           </tr>
           <!-- row 13 -->
           <tr>
@@ -444,9 +417,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox begin-item-list" />
-            </td>
+            
           </tr>
           <!-- row 14 -->
           <tr>
@@ -460,9 +431,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox begin-item-list" />
-            </td>
+            
           </tr>
           <!-- row 15 -->
           <tr>
@@ -476,9 +445,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox begin-item-list" />
-            </td>
+            
           </tr>
           <!-- row 16 -->
           <tr>
@@ -492,9 +459,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox begin-item-list" />
-            </td>
+            
           </tr>
           <!-- row 17 -->
           <tr>
@@ -508,9 +473,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox begin-item-list" />
-            </td>
+            
           </tr>
           <!-- row 18 -->
           <tr>
@@ -524,9 +487,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox begin-item-list" />
-            </td>
+            
           </tr>
           <!-- row 19 -->
           <tr>
@@ -540,9 +501,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox begin-item-list" />
-            </td>
+            
           </tr>
           <!-- row 20 -->
           <tr>
@@ -556,9 +515,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox begin-item-list" />
-            </td>
+            
           </tr>
         </tbody>
       </table>
@@ -573,7 +530,7 @@ export default class extends AbstractView {
             <th></th>
             <th>Couples</th>
             <th>Fans Favorite to Place</th>
-            <th>Pick 3</th>
+            
           </tr>
         </thead>
         <tbody>
@@ -589,7 +546,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox new-item-list" /></td>
+            
           </tr>
           <tr>
             <th>2</th>
@@ -602,7 +559,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox new-item-list" /></td>
+            
           </tr>
           <!-- row 3 -->
           <tr>
@@ -616,7 +573,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox new-item-list" /></td>
+            
           </tr>
           <!-- row 4 -->
           <tr>
@@ -630,7 +587,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox new-item-list" /></td>
+            
           </tr>
           <!-- row 5 -->
           <tr>
@@ -644,7 +601,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox new-item-list" /></td>
+            
           </tr>
           <!-- row 6 -->
           <tr>
@@ -658,7 +615,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox new-item-list" /></td>
+            
           </tr>
           <!-- row 7-->
           <tr>
@@ -672,7 +629,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox new-item-list" /></td>
+            
           </tr>
           <!-- row 8 -->
           <tr>
@@ -686,7 +643,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox new-item-list" /></td>
+            
           </tr>
           <tr>
             <td colspan="4" text-align="center">
@@ -709,7 +666,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox new-item-list" /></td>
+            
           </tr>
           <!-- row 10 -->
           <tr>
@@ -723,7 +680,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox new-item-list" /></td>
+            
           </tr>
           <!-- row 11 -->
           <tr>
@@ -737,7 +694,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox new-item-list" /></td>
+            
           </tr>
           <!-- row 12 -->
           <tr>
@@ -751,7 +708,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox new-item-list" /></td>
+            
           </tr>
           <!-- row 13 -->
           <tr>
@@ -765,7 +722,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox new-item-list" /></td>
+            
           </tr>
           <!-- row 14 -->
           <tr>
@@ -779,7 +736,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox new-item-list" /></td>
+            
           </tr>
           <!-- row 15 -->
           <tr>
@@ -793,7 +750,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox new-item-list" /></td>
+            
           </tr>
           <!-- row 16 -->
           <tr>
@@ -807,7 +764,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox new-item-list" /></td>
+            
           </tr>
           <!-- row 17 -->
           <tr>
@@ -821,7 +778,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox new-item-list" /></td>
+            
           </tr>
           <!-- row 18 -->
           <tr>
@@ -835,7 +792,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox new-item-list" /></td>
+            
           </tr>
           <!-- row 19 -->
           <tr>
@@ -849,7 +806,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox new-item-list" /></td>
+            
           </tr>
           <!-- row 20 -->
           <tr>
@@ -863,7 +820,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox new-item-list" /></td>
+            
           </tr>
         </tbody>
       </table>
@@ -878,7 +835,7 @@ export default class extends AbstractView {
             <th></th>
             <th>Couples</th>
             <th>Fans Favorite to Place</th>
-            <th>Pick 3</th>
+            
           </tr>
         </thead>
         <tbody>
@@ -894,7 +851,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox old-item-list" /></td>
+            
           </tr>
           <tr>
             <th>2</th>
@@ -907,7 +864,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox old-item-list" /></td>
+            
           </tr>
           <!-- row 3 -->
           <tr>
@@ -921,7 +878,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox old-item-list" /></td>
+            
           </tr>
           <!-- row 4 -->
           <tr>
@@ -935,7 +892,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox old-item-list" /></td>
+            
           </tr>
           <!-- row 5 -->
           <tr>
@@ -949,7 +906,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox old-item-list" /></td>
+            
           </tr>
           <!-- row 6 -->
           <tr>
@@ -963,7 +920,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox old-item-list" /></td>
+            
           </tr>
           <!-- row 7-->
           <tr>
@@ -977,7 +934,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox old-item-list" /></td>
+            
           </tr>
           <!-- row 8 -->
           <tr>
@@ -991,7 +948,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox old-item-list" /></td>
+            
           </tr>
           <tr>
             <td colspan="4" text-align="center">
@@ -1014,7 +971,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox old-item-list" /></td>
+            
           </tr>
           <!-- row 10 -->
           <tr>
@@ -1028,7 +985,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox old-item-list" /></td>
+            
           </tr>
           <!-- row 11 -->
           <tr>
@@ -1042,7 +999,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox old-item-list" /></td>
+            
           </tr>
           <!-- row 12 -->
           <tr>
@@ -1056,7 +1013,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox old-item-list" /></td>
+            
           </tr>
           <!-- row 13 -->
           <tr>
@@ -1070,7 +1027,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox old-item-list" /></td>
+            
           </tr>
           <!-- row 14 -->
           <tr>
@@ -1084,7 +1041,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox old-item-list" /></td>
+            
           </tr>
           <!-- row 15 -->
           <tr>
@@ -1098,7 +1055,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox old-item-list" /></td>
+            
           </tr>
           <!-- row 16 -->
           <tr>
@@ -1112,7 +1069,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox old-item-list" /></td>
+            
           </tr>
           <!-- row 17 -->
           <tr>
@@ -1126,7 +1083,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox old-item-list" /></td>
+            
           </tr>
           <!-- row 18 -->
           <tr>
@@ -1140,7 +1097,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox old-item-list" /></td>
+            
           </tr>
           <!-- row 19 -->
           <tr>
@@ -1154,7 +1111,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox old-item-list" /></td>
+            
           </tr>
           <!-- row 20 -->
           <tr>
@@ -1168,7 +1125,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox old-item-list" /></td>
+            
           </tr>
         </tbody>
       </table>
@@ -1183,7 +1140,7 @@ export default class extends AbstractView {
             <th></th>
             <th>Couples</th>
             <th>Fans Favorite to Place</th>
-            <th>Pick 3</th>
+            
           </tr>
         </thead>
         <tbody>
@@ -1199,7 +1156,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox trio-item-list" /></td>
+            
           </tr>
           <tr>
             <th>2</th>
@@ -1212,7 +1169,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox trio-item-list" /></td>
+            
           </tr>
           <!-- row 3 -->
           <tr>
@@ -1226,7 +1183,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox trio-item-list" /></td>
+            
           </tr>
           <!-- row 4 -->
           <tr>
@@ -1240,7 +1197,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox trio-item-list" /></td>
+            
           </tr>
           <!-- row 5 -->
           <tr>
@@ -1254,7 +1211,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox trio-item-list" /></td>
+            
           </tr>
           <!-- row 6 -->
           <tr>
@@ -1268,7 +1225,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox trio-item-list" /></td>
+            
           </tr>
           <!-- row 7-->
           <tr>
@@ -1282,7 +1239,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox trio-item-list" /></td>
+            
           </tr>
           <!-- row 8 -->
           <tr>
@@ -1296,7 +1253,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox trio-item-list" /></td>
+            
           </tr>
           <tr>
             <td colspan="4" text-align="center">
@@ -1319,7 +1276,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox trio-item-list" /></td>
+            
           </tr>
           <!-- row 10 -->
           <tr>
@@ -1333,7 +1290,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox trio-item-list" /></td>
+            
           </tr>
           <!-- row 11 -->
           <tr>
@@ -1347,7 +1304,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox trio-item-list" /></td>
+            
           </tr>
           <!-- row 12 -->
           <tr>
@@ -1361,7 +1318,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox trio-item-list" /></td>
+            
           </tr>
           <!-- row 13 -->
           <tr>
@@ -1375,7 +1332,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox trio-item-list" /></td>
+            
           </tr>
           <!-- row 14 -->
           <tr>
@@ -1389,7 +1346,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox trio-item-list" /></td>
+            
           </tr>
           <!-- row 15 -->
           <tr>
@@ -1403,7 +1360,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox trio-item-list" /></td>
+            
           </tr>
           <!-- row 16 -->
           <tr>
@@ -1417,7 +1374,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox trio-item-list" /></td>
+            
           </tr>
           <!-- row 17 -->
           <tr>
@@ -1431,7 +1388,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox trio-item-list" /></td>
+            
           </tr>
           <!-- row 18 -->
           <tr>
@@ -1445,7 +1402,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox trio-item-list" /></td>
+            
           </tr>
           <!-- row 19 -->
           <tr>
@@ -1459,7 +1416,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox trio-item-list" /></td>
+            
           </tr>
           <!-- row 20 -->
           <tr>
@@ -1473,7 +1430,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td><input type="checkbox" class="checkbox trio-item-list" /></td>
+            
           </tr>
         </tbody>
       </table>
@@ -1488,7 +1445,7 @@ export default class extends AbstractView {
             <th></th>
             <th>Couples</th>
             <th>Fans Favorite to Place</th>
-            <th>Pick 3</th>
+            
           </tr>
         </thead>
         <tbody>
@@ -1504,9 +1461,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox walkers-item-list" />
-            </td>
+            
           </tr>
           <tr>
             <th>2</th>
@@ -1519,9 +1474,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox walkers-item-list" />
-            </td>
+            
           </tr>
           <!-- row 3 -->
           <tr>
@@ -1535,9 +1488,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox walkers-item-list" />
-            </td>
+            
           </tr>
           <!-- row 4 -->
           <tr>
@@ -1551,9 +1502,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox walkers-item-list" />
-            </td>
+            
           </tr>
           <!-- row 5 -->
           <tr>
@@ -1567,9 +1516,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox walkers-item-list" />
-            </td>
+            
           </tr>
           <!-- row 6 -->
           <tr>
@@ -1583,9 +1530,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox walkers-item-list" />
-            </td>
+            
           </tr>
           <!-- row 7-->
           <tr>
@@ -1599,9 +1544,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox walkers-item-list" />
-            </td>
+            
           </tr>
           <!-- row 8 -->
           <tr>
@@ -1615,9 +1558,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox walkers-item-list" />
-            </td>
+            
           </tr>
           <tr>
             <td colspan="4" text-align="center">
@@ -1640,9 +1581,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox walkers-item-list" />
-            </td>
+            
           </tr>
           <!-- row 10 -->
           <tr>
@@ -1656,9 +1595,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox walkers-item-list" />
-            </td>
+            
           </tr>
           <!-- row 11 -->
           <tr>
@@ -1672,9 +1609,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox walkers-item-list" />
-            </td>
+            
           </tr>
           <!-- row 12 -->
           <tr>
@@ -1688,9 +1623,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox walkers-item-list" />
-            </td>
+            
           </tr>
           <!-- row 13 -->
           <tr>
@@ -1704,9 +1637,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox walkers-item-list" />
-            </td>
+            
           </tr>
           <!-- row 14 -->
           <tr>
@@ -1720,9 +1651,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox walkers-item-list" />
-            </td>
+            
           </tr>
           <!-- row 15 -->
           <tr>
@@ -1736,9 +1665,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox walkers-item-list" />
-            </td>
+            
           </tr>
           <!-- row 16 -->
           <tr>
@@ -1752,9 +1679,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox walkers-item-list" />
-            </td>
+            
           </tr>
           <!-- row 17 -->
           <tr>
@@ -1768,9 +1693,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox walkers-item-list" />
-            </td>
+            
           </tr>
           <!-- row 18 -->
           <tr>
@@ -1784,9 +1707,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox walkers-item-list" />
-            </td>
+            
           </tr>
           <!-- row 19 -->
           <tr>
@@ -1800,9 +1721,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox walkers-item-list" />
-            </td>
+            
           </tr>
           <!-- row 20 -->
           <tr>
@@ -1816,9 +1735,7 @@ export default class extends AbstractView {
                 max="100"
               ></progress>
             </td>
-            <td>
-              <input type="checkbox" class="checkbox walkers-item-list" />
-            </td>
+            
           </tr>
         </tbody>
       </table>
@@ -1826,10 +1743,10 @@ export default class extends AbstractView {
 
     <div style="height: 30px"><span class="filler">spacer</span></div>
     <div style="text-align: center">
-      <button id="selectionBtton" class="btn btn-primary">
-        Submit Your Choices
-      </button>
-    </div>
+    <button id="selectionBtton" class="btn btn-primary">
+    <a href="#selection" data-link>Enter Here to Play</a>
+    </button>
+  </div>
     <div style="height: 30px"><span class="filler">spacer</span></div>
 
     <dialog id="my_modal_3" class="modal">
@@ -2122,7 +2039,6 @@ publishable-key="pk_live_51NzK2mFD6FDvUpvfgIDrt4Yvr7EdLmBPvv2KhTz1ZeMxOEGBhVCZc9
 
     <a href="#selection" data-link>test</a>
     <a href="#confirmation" data-link>tes2</a>
-    <a href="#home" data-link>home</a>
         `;
   }
 }

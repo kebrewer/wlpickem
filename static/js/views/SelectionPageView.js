@@ -11,9 +11,9 @@ export default class extends AbstractView {
 
     <div class="rulelist">
       <ul class="steps steps-vertical">
-        <li class="step step-primary">Review how to win the $500?</li>
-        <li class="step step-primary">Select Your Winners Below</li>
-        <li class="step step-primary">Pay $5 to Enter your Choices</li>
+        <li class="step step-primary">Review how to win the $500 (above)</li>
+        <li class="step step-primary">Select Your Winners (below)</li>
+        <li class="step step-primary">Pay $5 to Submit Your Choices</li>
         <li class="step step-primary">Receive Confirmation Code</li>
       </ul>
     </div>

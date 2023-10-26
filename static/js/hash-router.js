@@ -3,9 +3,11 @@ import SelectionPageView from "./views/SelectionPageView.js";
 import LandingPageView from "./views/LandingPageView.js";
 import WinnerPageView from "./views/WinnerPageView.js";
 import ScorePageView from "./views/ScorePageView.js";
+import HomePageView from "./views/HomePageView.js";
 
 
 const routes = {
+  home: HomePageView,
   landing: LandingPageView,
   selection: SelectionPageView,
   confirmation: ConfirmationPageView,
