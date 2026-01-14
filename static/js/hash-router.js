@@ -39,9 +39,10 @@ const locationHandler = async () => {
     appDiv.classList.remove("hideelement");
 
     document.querySelector("#maincontent").innerHTML = await view.getHtml();
-    if(document.title === 'Landing'){
-      view.enableListeners();
-    }
+    // if(document.title === 'Landing'){
+    //   view.enableListeners();
+    // }
+    view.enableListeners();
 
   }
 };

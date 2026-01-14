@@ -139,11 +139,7 @@ export default class extends AbstractView {
       }
       submitModal.showModal();
     } else {
-      //alert("will make a backend call to submit data");
-      const template = document.getElementById('stripebttn');
-      const firstClone = template.content.cloneNode(true);
-      document.getElementById('maincontent').innerHTML = '';
-      document.getElementById('maincontent').append(firstClone);
+      window.location.href = window.location.pathname + "#selection";
     }
   }
 
@@ -170,7 +166,7 @@ export default class extends AbstractView {
     </div>
     <div style="text-align: center">
       <button id="selectionBtton" class="btn btn-primary">
-        Submit Your Choices
+        Select Your Choices
       </button>
     </div>
     <dialog id="submitModal" class="modal">
@@ -1827,7 +1823,7 @@ export default class extends AbstractView {
     <div style="height: 30px"><span class="filler">spacer</span></div>
     <div style="text-align: center">
       <button id="selectionBtton" class="btn btn-primary">
-        Submit Your Choices
+        Select Your Choices
       </button>
     </div>
     <div style="height: 30px"><span class="filler">spacer</span></div>
