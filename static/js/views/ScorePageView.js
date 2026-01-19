@@ -12,4 +12,12 @@ export default class extends AbstractView {
             <p>Manage score.</p>
         `;
   }
+
+  //How this is used in scoring
+// if (userPick.beginners["1st"] === results.beginners["1st"]) {
+//   score += 10;
+// }
+// if (userPick.beginners["2nd"] === results.beginners["2nd"]) {
+//     score += 7;
+// }   
 }

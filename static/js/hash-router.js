@@ -32,20 +32,24 @@ const locationHandler = async () => {
 
   if (View) {
     const view = new View();
-    let hero = document.getElementById("herocontent");
+  
+    if (typeof view.initialize === 'function') {
+      await view.initialize();
+    }
+  
+    const hero = document.getElementById("herocontent");
     hero.classList.add("hideelement");
-
-    let appDiv = document.getElementById('app');
+  
+    const appDiv = document.getElementById('app');
     appDiv.classList.remove("hideelement");
-
+  
     document.querySelector("#maincontent").innerHTML = await view.getHtml();
-    // if(document.title === 'Landing'){
-    //   view.enableListeners();
-    // }
     view.enableListeners();
-
   }
 };
+
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
   // create a function that watches the hash and calls the urlLocationHandler

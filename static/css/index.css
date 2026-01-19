@@ -63,27 +63,27 @@
   font-size: 70px;
 }
 
-.advertisement1 {
+.advertisement_beginners {
   background-image: url("/static/images/stylemasters.jpeg");
 }
-.advertisement2 {
+.advertisement_new_school {
   background-image: url("/static/images/sng.jpg");
 }
-.advertisement3 {
+.advertisement_old_school {
   background-image: url("/static/images/columbus.jpeg");
 }
-.advertisement4 {
+.advertisement_trios {
   background-image: url("/static/images/musicmatters.jpeg");
 }
-.advertisement5 {
+.advertisement_walkers {
   background-image: url("/static/images/smoothcruise.jpeg");
 }
 .advertisement,
-.advertisement1,
-.advertisement2,
-.advertisement3,
-.advertisement4,
-.advertisement5 {
+.advertisement_beginners,
+.advertisement_new_school,
+.advertisement_old_school,
+.advertisement_trios,
+.advertisement_walkers {
   width: 100%;
   height: 560px;
   text-align: center;
@@ -153,3 +153,4 @@
 .rulelist{
   margin-left: 25px;
 }
+

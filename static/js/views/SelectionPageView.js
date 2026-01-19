@@ -24,12 +24,61 @@ export default class extends AbstractView {
       document.getElementById('maincontent').append(firstClone);
    }
 
+   submitSelections(){ 
+    // Assume you have a MongoDB collection called userSelections
+    const userId = "user123"; // Replace with actual user id -- this will be a phone number
+    const selection = {
+      beginners: { "1st": "B12", "2nd": "B08", "3rd": "B21" },
+      new_school: { "1st": "NS04", "2nd": "NS11", "3rd": "NS02" },
+      old_school: { "1st": "OS07", "2nd": "OS01", "3rd": "OS12" },
+      trios: { "1st": "T03", "2nd": "T09", "3rd": "T01" },
+      walkers: { "1st": "W05", "2nd": "W02", "3rd": "W11" }
+    };
+
+    const payload = {
+      userId,
+      selection
+    };
+
+    // Save or update in MongoD
+    
+    /*
+    await db.collection('userSelections').updateOne(
+      { userId: userId },
+      { $set: payload },
+      { upsert: true }
+    );
+    */
+
+
+
+      //Example of how the data will be stored in database
+      // {
+      //   "_id": ObjectId("665f7c2e8b3e2a1a2b123456"),
+      //   "userId": "user123",
+      //   "selection": {
+      //     "beginners": { "1st": "B12", "2nd": "B08", "3rd": "B21" },
+      //     "new_school": { "1st": "NS04", "2nd": "NS11", "3rd": "NS02" },
+      //     "old_school": { "1st": "OS07", "2nd": "OS01", "3rd": "OS12" },
+      //     "trios": { "1st": "T03", "2nd": "T09", "3rd": "T01" },
+      //     "walkers": { "1st": "W05", "2nd": "W02", "3rd": "W11" }
+      //   }
+      // }
+
+
+   }
+
+
   async getHtml() {
     return `
 
     <div class="rulelist">
       <ul class="steps steps-vertical">
-        <li class="step step-primary"><a onclick="selectionPop.showModal()">Review how to win the $500?</a></li>
+      <li class="step step-primary">
+      <a onclick="selectionPop.showModal()" class="inline-flex items-center gap-1">
+        Review how to win the $500?
+      </a>
+    </li>
         <li class="step step-primary">Select Your Winners Below</li>
         <li class="step step-primary">Pay $5 to Enter your Choices</li>
         <li class="step step-primary">Receive Confirmation Code</li>
@@ -258,271 +307,15 @@ export default class extends AbstractView {
       <div class="modal-box">
         <form method="dialog">
           <button
-            class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
-          >
-            ✕
-          </button>
+            class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
         </form>
 
         <p class="py-4">Press ESC key or click on ✕ button to close</p>
         <div class="contentwrapper">
-          <table class="table">
-            <!-- head -->
-            <thead>
-              <tr>
-                <th></th>
-                <th>Couples</th>
-                <th>Votes</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- row 1 -->
-              <tr>
-                <th>1</th>
-                <td>Cy Ganderton & Hart Hagerty</td>
-                <td>
-                  10 %<progress
-                    class="progress progress-primary w-56"
-                    value="10"
-                    max="100"
-                  ></progress>
-                </td>
-              </tr>
-              <!-- row 2 -->
-              <tr>
-                <th>2</th>
-                <td>Hart Hagerty</td>
-                <td>
-                  10 %<progress
-                    class="progress progress-primary w-56"
-                    value="3"
-                    max="100"
-                  ></progress>
-                </td>
-              </tr>
-              <!-- row 3 -->
-              <tr>
-                <th>3</th>
-                <td>Brice Swyre</td>
-                <td>
-                  10 %<progress
-                    class="progress progress-primary w-56"
-                    value="3"
-                    max="100"
-                  ></progress>
-                </td>
-              </tr>
-              <!-- row 4 -->
-              <tr>
-                <th>4</th>
-                <td>Cy Ganderton</td>
-                <td>
-                  10 %<progress
-                    class="progress progress-primary w-56"
-                    value="3"
-                    max="100"
-                  ></progress>
-                </td>
-              </tr>
-              <!-- row 5 -->
-              <tr>
-                <th>5</th>
-                <td>Hart Hagerty</td>
-                <td>
-                  10 %<progress
-                    class="progress progress-primary w-56"
-                    value="3"
-                    max="100"
-                  ></progress>
-                </td>
-              </tr>
-              <!-- row 6 -->
-              <tr>
-                <th>6</th>
-                <td>Brice Swyre</td>
-                <td>
-                  10 %<progress
-                    class="progress progress-primary w-56"
-                    value="40"
-                    max="100"
-                  ></progress>
-                </td>
-              </tr>
-              <!-- row 7-->
-              <tr>
-                <th>7</th>
-                <td>Cy Ganderton</td>
-                <td>
-                  10 %<progress
-                    class="progress progress-primary w-56"
-                    value="10"
-                    max="100"
-                  ></progress>
-                </td>
-              </tr>
-              <!-- row 8 -->
-              <tr>
-                <th>8</th>
-                <td>Hart Hagerty</td>
-                <td>
-                  10 %<progress
-                    class="progress progress-primary w-56"
-                    value="10"
-                    max="100"
-                  ></progress>
-                </td>
-              </tr>
-              <!-- row 9 -->
-              <tr>
-                <th>9</th>
-                <td>Brice Swyre</td>
-                <td>
-                  10 %<progress
-                    class="progress progress-primary w-56"
-                    value="10"
-                    max="100"
-                  ></progress>
-                </td>
-              </tr>
-              <!-- row 10 -->
-              <tr>
-                <th>10</th>
-                <td>Cy Ganderton</td>
-                <td>
-                  10 %<progress
-                    class="progress progress-primary w-56"
-                    value="10"
-                    max="100"
-                  ></progress>
-                </td>
-              </tr>
-              <!-- row 11 -->
-              <tr>
-                <th>11</th>
-                <td>Hart Hagerty</td>
-                <td>
-                  10 %<progress
-                    class="progress progress-primary w-56"
-                    value="10"
-                    max="100"
-                  ></progress>
-                </td>
-              </tr>
-              <!-- row 12 -->
-              <tr>
-                <th>12</th>
-                <td>Brice Swyre</td>
-                <td>
-                  10 %<progress
-                    class="progress progress-primary w-56"
-                    value="10"
-                    max="100"
-                  ></progress>
-                </td>
-              </tr>
-              <!-- row 13 -->
-              <tr>
-                <th>13</th>
-                <td>Cy Ganderton</td>
-                <td>
-                  10 %<progress
-                    class="progress progress-primary w-56"
-                    value="10"
-                    max="100"
-                  ></progress>
-                </td>
-              </tr>
-              <!-- row 14 -->
-              <tr>
-                <th>14</th>
-                <td>Hart Hagerty</td>
-                <td>
-                  10 %<progress
-                    class="progress progress-primary w-56"
-                    value="10"
-                    max="100"
-                  ></progress>
-                </td>
-              </tr>
-              <!-- row 15 -->
-              <tr>
-                <th>15</th>
-                <td>Brice Swyre</td>
-                <td>
-                  10 %<progress
-                    class="progress progress-primary w-56"
-                    value="10"
-                    max="100"
-                  ></progress>
-                </td>
-              </tr>
-              <!-- row 16 -->
-              <tr>
-                <th>16</th>
-                <td>Cy Ganderton</td>
-                <td>
-                  10 %<progress
-                    class="progress progress-primary w-56"
-                    value="10"
-                    max="100"
-                  ></progress>
-                </td>
-              </tr>
-              <!-- row 17 -->
-              <tr>
-                <th>17</th>
-                <td>Hart Hagerty</td>
-                <td>
-                  10 %<progress
-                    class="progress progress-primary w-56"
-                    value="10"
-                    max="100"
-                  ></progress>
-                </td>
-              </tr>
-              <!-- row 18 -->
-              <tr>
-                <th>18</th>
-                <td>Brice Swyre</td>
-                <td>
-                  10 %<progress
-                    class="progress progress-primary w-56"
-                    value="10"
-                    max="100"
-                  ></progress>
-                </td>
-              </tr>
-              <!-- row 19 -->
-              <tr>
-                <th>19</th>
-                <td>Cy Ganderton</td>
-                <td>
-                  10 %<progress
-                    class="progress progress-primary w-56"
-                    value="10"
-                    max="100"
-                  ></progress>
-                </td>
-              </tr>
-              <!-- row 20 -->
-              <tr>
-                <th>20</th>
-                <td>Hart Hagerty</td>
-                <td>
-                  10 %<progress
-                    class="progress progress-primary w-56"
-                    value="10"
-                    max="100"
-                  ></progress>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <pickem-rules></pickem-rules>
         </div>
       </div>
     </dialog>
-
-
     `;
   }
 }
