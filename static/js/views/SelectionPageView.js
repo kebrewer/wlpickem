@@ -1,4 +1,5 @@
 import AbstractView from "./AbstractView.js";
+import { getCouplesData } from "../stores/couples-store.js";
 
 export default class extends AbstractView {
   constructor(params) {
@@ -8,6 +9,9 @@ export default class extends AbstractView {
 
   enableListeners(){
     this.enableButtonListeners();
+
+    const categorys = ["beginners", "new_school", "old_school", "trios", "walkers"];
+    categorys.forEach(category => this.addDropdownListeners(category));
   }
 
 
@@ -68,8 +72,93 @@ export default class extends AbstractView {
 
    }
 
+   formatCategoryLabel(category) {
+    const formatted = category.charAt(0).toUpperCase() + category.slice(1);
+    if (formatted === "New_school") return "New School";
+    if (formatted === "Old_school") return "Old School";
+    return formatted;
+  }
+
+  // Save selections to sessionStorage
+  saveSelections(category, selections) {
+    sessionStorage.setItem(`selections_${category}`, JSON.stringify(selections));
+  }
+
+// Load selections from sessionStorage
+  loadSelections(category) {
+    const data = sessionStorage.getItem(`selections_${category}`);
+    return data ? JSON.parse(data) : { "1st": "", "2nd": "", "3rd": "" };
+  }
+
+  // Render dropdowns with preselected values
+  renderDropdowns(couplesJson, category) {
+    const places = ["1st", "2nd", "3rd"];
+    const coupleList = couplesJson[category] || [];
+    const selections = this.loadSelections(category);
+
+    return `
+      <div class="selectedcategoryLabel">${this.formatCategoryLabel(category)}</div>
+      <div class="selectcategory">
+        ${places.map((place, idx) => `
+          <div class="dropdownrow${idx % 2 === 0 ? ' divbackground' : ''}"> 
+            <label class="selectlabel" for="${category}_${place}">${place} Place</label>
+            <div class="catdropdown">
+              <select class="select select-primary w-full max-w-xs" id="${category}_${place}">
+                <option disabled ${!selections[place] ? 'selected' : ''}>Select A Couple</option>
+                ${coupleList.map((c, i) => {
+                  const val = `Couple ${i + 1}: ${c.male.firstName} ${c.male.lastName} & ${c.female.firstName} ${c.female.lastName}`;
+                  return `<option value="${val}" ${selections[place] === val ? 'selected' : ''}>${val}</option>`;
+                }).join('\n')}
+              </select>
+            </div>
+          </div>
+        `).join('\n')}
+      </div>
+    `;
+  }
+
+  addDropdownListeners(category) {
+    const places = ["1st", "2nd", "3rd"];
+    places.forEach(place => {
+      const select = document.getElementById(`${category}_${place}`);
+      if (select) {
+        select.addEventListener('change', (event) => {
+          this.handleSelectionChange(category, place, event.target.value);
+        });
+      }
+    });
+  }
+
+  // Handler for dropdown change
+// handleSelectionChange(category, place, value) {
+//   const selections = this.loadSelections(category);
+//   selections[place] = value;
+//   this.saveSelections(category, selections);
+// }
+
+handleSelectionChange(category, place, value) {
+  const selections = this.loadSelections(category);
+
+  // Check if value is already selected in another place
+  const isDuplicate = Object.entries(selections).some(
+    ([key, val]) => key !== place && val === value
+  );
+
+  if (isDuplicate) {
+    alert("This couple has already been selected for another place in this category.");
+    // Optionally, reset the dropdown to its previous value
+    const select = document.getElementById(`${category}_${place}`);
+    if (select) select.value = selections[place] || "Select A Couple";
+    return;
+  }
+
+  selections[place] = value;
+  this.saveSelections(category, selections);
+}
+
 
   async getHtml() {
+    const couplesJson = await getCouplesData();
     return `
 
     <div class="rulelist">
@@ -86,218 +175,29 @@ export default class extends AbstractView {
     </div>
 
     <div style="text-align: center">
-    <button id="selectionBtton" class="btn btn-primary">
+    <button id="selectionBtton" class="btn btn-primary mt-10 mb-10">
       Pick Your Choices
     </button>
   </div>
 
     <!--CATEGORY BEGINNERS----------------------------->
-
-    <div class="selectedcategoryLabel">Beginners</div>
-    <div class="selectcategory">
-    <!-- first place -->
-      <div class="dropdownrow divbackground"> 
-      <label class="selectlabel" for="beginners">1st Place</label>
-      <div class="catdropdown">
-        <select class="select select-primary w-full max-w-xs">
-          <option disabled selected>Select A Couple</option>
-          <option>Couple 1: Tykman & Vicki Henninng</option>
-          <option>Couple 2: Mark Alexander & Renee Brewer</option>
-        </select>
-      </div> <!-- end of catdropdown div-->
-      </div> <!-- end of div row-->
-
-    <!-- second place -->  
-      <div class="dropdownrow"> 
-      <label class="selectlabel" for="beginners">2nd Place</label>
-      <div class="catdropdown">
-        <select class="select select-primary w-full max-w-xs">
-          <option disabled selected>Select A Couple</option>
-          <option>Couple 1: Tykman & Vicki Henninng</option>
-          <option>Couple 2: Mark Alexander & Renee Brewer</option>
-        </select>
-      </div> <!-- end of catdropdown div-->
-      </div> <!-- end of div row-->
-
-    <!-- third place -->  
-      <div class="dropdownrow divbackground"> 
-      <label class="selectlabel" for="beginners">3rd Place</label>
-      <div class="catdropdown">
-        <select class="select select-primary w-full max-w-xs">
-          <option disabled selected>Select A Couple</option>
-          <option>Couple 1: Tykman & Vicki Henninng</option>
-          <option>Couple 2: Mark Alexander & Renee Brewer</option>
-        </select>
-      </div> <!-- end of catdropdown div-->
-      </div> <!-- end of div row-->
-    </div><!-- end of select category div-->
-
+    ${this.renderDropdowns(couplesJson, "beginners")}
 
     <!--CATEGORY NEW SCKOOL----------------------------->
-
-    <div class="selectedcategoryLabel">New School</div>
-    <div class="selectcategory">
-    <!-- first place -->
-      <div class="dropdownrow divbackground"> 
-      <label class="selectlabel" for="newschool">1st Place</label>
-      <div class="catdropdown">
-        <select class="select select-primary w-full max-w-xs">
-          <option disabled selected>Select A Couple</option>
-          <option>Couple 1: Tykman & Vicki Henninng</option>
-          <option>Couple 2: Mark Alexander & Renee Brewer</option>
-        </select>
-      </div> <!-- end of catdropdown div-->
-      </div> <!-- end of div row-->
-
-    <!-- second place -->  
-      <div class="dropdownrow"> 
-      <label class="selectlabel" for="beginners">2nd Place</label>
-      <div class="catdropdown">
-        <select class="select select-primary w-full max-w-xs">
-          <option disabled selected>Select A Couple</option>
-          <option>Couple 1: Tykman & Vicki Henninng</option>
-          <option>Couple 2: Mark Alexander & Renee Brewer</option>
-        </select>
-      </div> <!-- end of catdropdown div-->
-      </div> <!-- end of div row-->
-
-    <!-- third place -->  
-      <div class="dropdownrow divbackground"> 
-      <label class="selectlabel" for="beginners">3rd Place</label>
-      <div class="catdropdown">
-        <select class="select select-primary w-full max-w-xs">
-          <option disabled selected>Select A Couple</option>
-          <option>Couple 1: Tykman & Vicki Henninng</option>
-          <option>Couple 2: Mark Alexander & Renee Brewer</option>
-        </select>
-      </div> <!-- end of catdropdown div-->
-      </div> <!-- end of div row-->
-    </div><!-- end of select category div-->
+    ${this.renderDropdowns(couplesJson, "new_school")}
 
     <!--CATEGORY OLD SCKOOL----------------------------->
-
-    <div class="selectedcategoryLabel">Old School</div>
-    <div class="selectcategory">
-    <!-- first place -->
-      <div class="dropdownrow divbackground"> 
-      <label class="selectlabel" for="oldschool">1st Place</label>
-      <div class="catdropdown">
-        <select class="select select-primary w-full max-w-xs">
-          <option disabled selected>Select A Couple</option>
-          <option>Couple 1: Tykman & Vicki Henninng</option>
-          <option>Couple 2: Mark Alexander & Renee Brewer</option>
-        </select>
-      </div> <!-- end of catdropdown div-->
-      </div> <!-- end of div row-->
-
-    <!-- second place -->  
-      <div class="dropdownrow"> 
-      <label class="selectlabel" for="beginners">2nd Place</label>
-      <div class="catdropdown">
-        <select class="select select-primary w-full max-w-xs">
-          <option disabled selected>Select A Couple</option>
-          <option>Couple 1: Tykman & Vicki Henninng</option>
-          <option>Couple 2: Mark Alexander & Renee Brewer</option>
-        </select>
-      </div> <!-- end of catdropdown div-->
-      </div> <!-- end of div row-->
-
-    <!-- third place -->  
-      <div class="dropdownrow divbackground"> 
-      <label class="selectlabel" for="beginners">3rd Place</label>
-      <div class="catdropdown">
-        <select class="select select-primary w-full max-w-xs">
-          <option disabled selected>Select A Couple</option>
-          <option>Couple 1: Tykman & Vicki Henninng</option>
-          <option>Couple 2: Mark Alexander & Renee Brewer</option>
-        </select>
-      </div> <!-- end of catdropdown div-->
-      </div> <!-- end of div row-->
-    </div><!-- end of select category div-->
+    ${this.renderDropdowns(couplesJson, "old_school")}
 
     <!--CATEGORY TRIOS SCKOOL----------------------------->
-    <div class="selectedcategoryLabel">Trios</div>
-    <div class="selectcategory">
-    <!-- first place -->
-      <div class="dropdownrow divbackground"> 
-      <label class="selectlabel" for="trios">1st Place</label>
-      <div class="catdropdown">
-        <select class="select select-primary w-full max-w-xs">
-          <option disabled selected>Select A Couple</option>
-          <option>Couple 1: Tykman & Vicki Henninng</option>
-          <option>Couple 2: Mark Alexander & Renee Brewer</option>
-        </select>
-      </div> <!-- end of catdropdown div-->
-      </div> <!-- end of div row-->
-
-    <!-- second place -->  
-      <div class="dropdownrow"> 
-      <label class="selectlabel" for="beginners">2nd Place</label>
-      <div class="catdropdown">
-        <select class="select select-primary w-full max-w-xs">
-          <option disabled selected>Select A Couple</option>
-          <option>Couple 1: Tykman & Vicki Henninng</option>
-          <option>Couple 2: Mark Alexander & Renee Brewer</option>
-        </select>
-      </div> <!-- end of catdropdown div-->
-      </div> <!-- end of div row-->
-
-    <!-- third place -->  
-      <div class="dropdownrow divbackground"> 
-      <label class="selectlabel" for="beginners">3rd Place</label>
-      <div class="catdropdown">
-        <select class="select select-primary w-full max-w-xs">
-          <option disabled selected>Select A Couple</option>
-          <option>Couple 1: Tykman & Vicki Henninng</option>
-          <option>Couple 2: Mark Alexander & Renee Brewer</option>
-        </select>
-      </div> <!-- end of catdropdown div-->
-      </div> <!-- end of div row-->
-    </div><!-- end of select category div-->
+    ${this.renderDropdowns(couplesJson, "trios")}
 
     <!--CATEGORY WALKERS SCKOOL----------------------------->
+    ${this.renderDropdowns(couplesJson, "walkers")}
 
-    <div class="selectedcategoryLabel">Walkers</div>
-    <div class="selectcategory">
-    <!-- first place -->
-      <div class="dropdownrow divbackground"> 
-      <label class="selectlabel" for="walkers">1st Place</label>
-      <div class="catdropdown">
-        <select class="select select-primary w-full max-w-xs">
-          <option disabled selected>Select A Couple</option>
-          <option>Couple 1: Tykman & Vicki Henninng</option>
-          <option>Couple 2: Mark Alexander & Renee Brewer</option>
-        </select>
-      </div> <!-- end of catdropdown div-->
-      </div> <!-- end of div row-->
-
-    <!-- second place -->  
-      <div class="dropdownrow"> 
-      <label class="selectlabel" for="beginners">2nd Place</label>
-      <div class="catdropdown">
-        <select class="select select-primary w-full max-w-xs">
-          <option disabled selected>Select A Couple</option>
-          <option>Couple 1: Tykman & Vicki Henninng</option>
-          <option>Couple 2: Mark Alexander & Renee Brewer</option>
-        </select>
-      </div> <!-- end of catdropdown div-->
-      </div> <!-- end of div row-->
-
-    <!-- third place -->  
-      <div class="dropdownrow divbackground"> 
-      <label class="selectlabel" for="beginners">3rd Place</label>
-      <div class="catdropdown">
-        <select class="select select-primary w-full max-w-xs">
-          <option disabled selected>Select A Couple</option>
-          <option>Couple 1: Tykman & Vicki Henninng</option>
-          <option>Couple 2: Mark Alexander & Renee Brewer</option>
-        </select>
-      </div> <!-- end of catdropdown div-->
-      </div> <!-- end of div row-->
-    </div><!-- end of select category div-->
 
     <div style="text-align: center">
-    <button id="selectionBtton" class="btn btn-primary">
+    <button id="selectionBtton" class="btn btn-primary mt-10">
       Pick Your Choices
     </button>
     <br><br>

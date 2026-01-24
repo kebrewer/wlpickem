@@ -1,4 +1,6 @@
 import AbstractView from './AbstractView.js';
+import { getCouplesData } from "../stores/couples-store.js";
+import { getVotePercentageData } from "../stores/vote-percentage-store.js";
 
 
 export default class extends AbstractView {
@@ -15,24 +17,10 @@ export default class extends AbstractView {
     ];
   }
 
-
-  async fetchCouplesData() {
-    const response = await fetch('/static/json/couples.json');
-    if (!response.ok) throw new Error('Failed to load couples.json');
-    return await response.json();
-  }
-
-  async fetchSessionData() {
-    const response = await fetch('/static/json/session-selection.json');
-    if (!response.ok) throw new Error('Failed to load couples.json');
-    return await response.json();
-  }
-
-
   // Usage in your class (e.g., in constructor or an async init method)
   async initialize() {
     try {
-      this.couplesData = await this.fetchCouplesData();
+      this.couplesData = await getCouplesData();
       // Now you can use this.couplesData in your rendering logic
       console.log(this.couplesData);
     } catch (err) {
@@ -40,9 +28,9 @@ export default class extends AbstractView {
     }
 
     try {
-      this.sesstionData = await this.fetchSessionData();
+      this.votePercentageData = await getVotePercentageData();
       // Now you can use this.couplesData in your rendering logic
-      console.log(this.sesstionData);
+      console.log(this.votePercentageData);
     } catch (err) {
       console.error(err);
     }
@@ -154,7 +142,7 @@ export default class extends AbstractView {
   }
 
   async getHtml() {
-    const percentages = this.calculateValuePercentages(this.sesstionData);
+    const percentages = this.calculateValuePercentages(this.votePercentageData);
     this.generateCoupleRows(this.couplesData, percentages);
     return `
     <div class="stepperwrapper" style="display: none">
