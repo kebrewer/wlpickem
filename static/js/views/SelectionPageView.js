@@ -22,10 +22,7 @@ export default class extends AbstractView {
    }
 
    showPaymentPage(){
-  const template = document.getElementById('stripebttn');
-      const firstClone = template.content.cloneNode(true);
-      document.getElementById('maincontent').innerHTML = '';
-      document.getElementById('maincontent').append(firstClone);
+      window.location.hash = "#payment";
    }
 
    submitSelections(){ 
@@ -71,6 +68,19 @@ export default class extends AbstractView {
 
 
    }
+
+   showStartHereBttn(){
+    const selectionButtonTemplate = `
+    <div style="text-align: center">
+      <button id="selectionBtton" class="btn btn-primary mt-10">
+        Submit Your Choices
+      </button>
+      <br><br>
+    </div>`;
+    return selectionButtonTemplate
+
+   }
+   
 
    formatCategoryLabel(category) {
     const formatted = category.charAt(0).toUpperCase() + category.slice(1);
@@ -129,13 +139,6 @@ export default class extends AbstractView {
     });
   }
 
-  // Handler for dropdown change
-// handleSelectionChange(category, place, value) {
-//   const selections = this.loadSelections(category);
-//   selections[place] = value;
-//   this.saveSelections(category, selections);
-// }
-
 handleSelectionChange(category, place, value) {
   const selections = this.loadSelections(category);
 
@@ -165,7 +168,7 @@ handleSelectionChange(category, place, value) {
       <ul class="steps steps-vertical">
       <li class="step step-primary">
       <a onclick="selectionPop.showModal()" class="inline-flex items-center gap-1">
-        Review how to win the $500?
+        Review how to win the <span class="font-bold">click here</>?
       </a>
     </li>
         <li class="step step-primary">Select Your Winners Below</li>
@@ -174,11 +177,7 @@ handleSelectionChange(category, place, value) {
       </ul>
     </div>
 
-    <div style="text-align: center">
-    <button id="selectionBtton" class="btn btn-primary mt-10 mb-10">
-      Pick Your Choices
-    </button>
-  </div>
+    ${this.showStartHereBttn()}
 
     <!--CATEGORY BEGINNERS----------------------------->
     ${this.renderDropdowns(couplesJson, "beginners")}
@@ -196,12 +195,7 @@ handleSelectionChange(category, place, value) {
     ${this.renderDropdowns(couplesJson, "walkers")}
 
 
-    <div style="text-align: center">
-    <button id="selectionBtton" class="btn btn-primary mt-10">
-      Pick Your Choices
-    </button>
-    <br><br>
-  </div>
+    ${this.showStartHereBttn()}
 
   <dialog id="selectionPop" class="modal">
       <div class="modal-box">

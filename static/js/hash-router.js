@@ -3,6 +3,7 @@ import SelectionPageView from "./views/SelectionPageView.js";
 import LandingPageView from "./views/LandingPageView.js";
 import WinnerPageView from "./views/WinnerPageView.js";
 import ScorePageView from "./views/ScorePageView.js";
+import PaymentPageView from "./views/PaymentPageView.js";
 
 
 const routes = {
@@ -10,12 +11,12 @@ const routes = {
   selection: SelectionPageView,
   confirmation: ConfirmationPageView,
   winner: WinnerPageView,
-  score: ScorePageView
+  score: ScorePageView,
+  payment: PaymentPageView
 };
 
 // create a function that watches the url and calls the urlLocationHandler
 const locationHandler = async () => {
-  console.log('im in location handler')
   // get the url path, replace hash with empty string
   var location = window.location.hash.replace("#", "");
   // if the path length is 0, set it to primary page route
