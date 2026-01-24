@@ -22,7 +22,6 @@ export default class extends AbstractView {
     try {
       this.couplesData = await getCouplesData();
       // Now you can use this.couplesData in your rendering logic
-      console.log(this.couplesData);
     } catch (err) {
       console.error(err);
     }
@@ -30,7 +29,6 @@ export default class extends AbstractView {
     try {
       this.votePercentageData = await getVotePercentageData();
       // Now you can use this.couplesData in your rendering logic
-      console.log(this.votePercentageData);
     } catch (err) {
       console.error(err);
     }
@@ -47,7 +45,6 @@ export default class extends AbstractView {
   
     tabs.onclick = (e) => {
       const id = e.target.dataset.id;
-      console.log(`the value of id is ${id}`);
       if (id) {
         tabButton.forEach((btn) => {
           btn.classList.remove("tab-active");
@@ -87,6 +84,16 @@ export default class extends AbstractView {
   
     return percentages;
   }
+
+  showButton(){
+    const bttn =`
+    <div style="text-align: center" class="mt-6 mb-4">
+      <button id="selectionBtton" class="btn btn-primary">
+      <a href="#selection" data-link> Start Here! </a>
+      </button>
+    </div>`;
+    return bttn;
+  }
   
   // Example usage:
   // const result = calculateValuePercentages(yourArray);
@@ -102,8 +109,8 @@ export default class extends AbstractView {
             <th>${idx + 1}</th>
             <td>${item.female.firstName} ${item.female.lastName} & ${item.male.firstName} ${item.male.lastName}</td>
             <td>
-              <span>${percentages[item.coupleId] + "%"}</span>
-              <progress class="progress progress-primary w-56" value="${percentages[item.coupleId]}" max="100"></progress>
+              <span>${Math.round(percentages[item.coupleId]) + "%"}</span>
+              <progress class="progress progress-primary w-56" value="${Math.round(percentages[item.coupleId])}" max="100"></progress>
             </td>
           </tr>
         `);
@@ -154,11 +161,7 @@ export default class extends AbstractView {
         <li data-content="W" class="step">Walkers</li>
       </ul>
     </div>
-    <div style="text-align: center">
-      <button id="selectionBtton" class="btn btn-primary">
-      <a href="#selection" data-link> Submit Your Picks </a>
-      </button>
-    </div>
+   ${this.showButton()}
     <dialog id="submitModal" class="modal">
       <div class="modal-box">
         <h3 class="font-bold text-lg">
@@ -216,15 +219,7 @@ export default class extends AbstractView {
     <!--Walkers Contestants-->
     ${this.walkers}
 
-    <div style="height: 30px"><span class="filler">spacer</span></div>
-    <div style="text-align: center">
-      <button id="selectionBtton" class="btn btn-primary">
-      <a href="#selection" data-link> Submit Your Picks </a>
-      </button>
-    </div>
-    <div style="height: 30px"><span class="filler">spacer</span></div>
-
-    <a href="#confirmation" data-link>tes2</a>
-        `;
+    ${this.showButton()}
+    `;
   }
 }
