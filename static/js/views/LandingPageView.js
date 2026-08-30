@@ -177,7 +177,7 @@ export default class extends AbstractView {
       </div>
     </dialog>
     <div class="selectionrules">
-      Submit Your Picks to have your chances to win $500!
+      Click Start Here to have your chances to win $500!
     </div>
     <div style="height: 30px"><span class="filler">spacer</span></div>
     <div class="tabwrapper">

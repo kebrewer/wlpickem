@@ -107,7 +107,7 @@ export default class extends AbstractView {
     const selections = this.loadSelections(category);
 
     return `
-      <div class="selectedcategoryLabel">${this.formatCategoryLabel(category)}</div>
+      <div class="selectedcategoryLabel pt-4">${this.formatCategoryLabel(category)}</div>
       <div class="selectcategory">
         ${places.map((place, idx) => `
           <div class="dropdownrow${idx % 2 === 0 ? ' divbackground' : ''}"> 
